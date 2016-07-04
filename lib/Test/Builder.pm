@@ -156,7 +156,7 @@ class Test::Builder:auth<soh_cah_toa>:ver<0.0.1> {
 
     #= Returns a new Test::Builder instance
     method create() {
-        return $?CLASS.bless(*);
+        return $?CLASS.bless;
     }
 
     submethod BUILD(Test::Builder::Plan   $!plan?,
