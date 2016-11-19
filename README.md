@@ -8,11 +8,11 @@ application-specific TAP test libraries.
 
 ## Source Code
 
-The source code for Test::Builder is available at <https://github.com/soh-cah-toa/p6-test-builder>.
+The source code for Test::Builder is available at <https://github.com/perl6-community-modules/p6-test-builder>.
 
 To obtain a local copy of the source code, run:
 
-    git clone git://github.com/soh-cah-toa/p6-test-builder.git p6-test-builder
+    git clone git@github.com:perl6-community-modules/p6-test-builder.git p6-test-builder
 
 
 ## Installation
