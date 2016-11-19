@@ -50,9 +50,12 @@ forking a clone on GitHub and submitting a Pull Request.
 
 ## Author
 
-Kevin Polulak
+Originally written by Kevin Polulak:
     Email: kpolulak@gmail.com
     IRC:   soh_cah_toa
+
+Now maintained by The Perl6 Community:
+    GitHub: https://github.com/perl6-community-modules
 
 
 ## Copyright and License
@@ -62,5 +65,5 @@ Copyright (C) 2015-2016 The Perl6 Community.
 
 This program is distributed under the terms of the Artistic License 2.0.
 
-For further information, please see LICENSE or visit
+For further information, please see the LICENSE or visit
 <http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt>.
