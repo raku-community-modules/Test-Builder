@@ -18,17 +18,13 @@ To obtain a local copy of the source code, run:
 
 ## Installation
 
-Once you've obtained a copy of the source code, run:
+The simplest way to install `Test::Builder` is via either via `panda`
 
-    ufo             # Creates Makefile
-    make            # Builds module
-    make test       # Runs test suite
-    make install    # Installs to ~/.perl6/lib
+    panda install Test::Builder
 
-If you wish to remove the files generated during the build/install process, run:
+or `zef`:
 
-    make clean        # Removes generated files
-    make distclean    # 'make clean' and removes Makefile
+    zef install Test::Builder
 
 
 ## Feedback
