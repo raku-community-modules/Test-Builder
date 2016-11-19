@@ -1,5 +1,4 @@
-Test::Builder
-=============
+# Test::Builder
 
 This is a flexible framework for building TAP test libraries.
 
@@ -7,8 +6,7 @@ It provides the basic "building blocks" and generic functionality needed for bui
 application-specific TAP test libraries.
 
 
-Source Code
-===========
+## Source Code
 
 The source code for Test::Builder is available at <https://github.com/soh-cah-toa/p6-test-builder>.
 
@@ -17,8 +15,7 @@ To obtain a local copy of the source code, run:
     git clone git://github.com/soh-cah-toa/p6-test-builder.git p6-test-builder
 
 
-Installation
-============
+## Installation
 
 Once you've obtained a copy of the source code, run:
 
@@ -33,8 +30,7 @@ If you wish to remove the files generated during the build/install process, run:
     make distclean    # 'make clean' and removes Makefile
 
 
-Feedback
-========
+## Feedback
 
 If you experience a bug, error, or just want to make a suggestion, there a several ways to get in
 contact with me.
@@ -52,21 +48,18 @@ If you know how to fix the problem you encountered, consider sending a patch (vi
 forking a clone on GitHub and submitting a Pull Request.
 
 
-Author
-======
+## Author
 
 Kevin Polulak
     Email: kpolulak@gmail.com
     IRC:   soh_cah_toa
 
 
-Copyright and License
-=====================
+## Copyright and License
 
 Copyright (C) 2011, Kevin Polulak <kpolulak@gmail.com>.
 
 This program is distributed under the terms of the Artistic License 2.0.
 
-For further information, please see LICENSE or visit 
+For further information, please see LICENSE or visit
 <http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt>.
-
