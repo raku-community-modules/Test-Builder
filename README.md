@@ -32,20 +32,12 @@ If you wish to remove the files generated during the build/install process, run:
 
 ## Feedback
 
-If you experience a bug, error, or just want to make a suggestion, there a several ways to get in
-contact with me.
+If you experience a bug, error, or just want to make a suggestion, you can
+open a [GitHub issue](https://github.com/perl6-community-modules/p6-test-builder/issues)
+or discuss the issue with the nice people on the #perl6 channel on irc.freenode.net.
 
-    Email: You may send an email to <kpolulak@gmail.com>. If it's about a bug, please give a
-    detailed description of what caused it, preferably with the exact output.
-
-    IRC: I can be found regularly lurking around #parrot on irc.perl.org and #perl6 on
-    irc.freenode.net where I go under the nickname "soh_cah_toa".
-
-    GitHub: You may send a private message to soh-cah-toa (note the hyphens) if you have a GitHub
-    account.
-
-If you know how to fix the problem you encountered, consider sending a patch (via 'git diff') or
-forking a clone on GitHub and submitting a Pull Request.
+If you know how to fix the problem you encountered, forking a clone on
+GitHub and submitting a Pull Request.
 
 
 ## Author
