@@ -58,6 +58,7 @@ Kevin Polulak
 ## Copyright and License
 
 Copyright (C) 2011, Kevin Polulak <kpolulak@gmail.com>.
+Copyright (C) 2015-2016 The Perl6 Community.
 
 This program is distributed under the terms of the Artistic License 2.0.
 
