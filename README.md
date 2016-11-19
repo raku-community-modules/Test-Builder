@@ -2,17 +2,18 @@
 
 This is a flexible framework for building TAP test libraries.
 
-It provides the basic "building blocks" and generic functionality needed for building your own
-application-specific TAP test libraries.
+It provides the basic "building blocks" and generic functionality needed for
+building your own application-specific TAP test libraries.
 
 
 ## Source Code
 
-The source code for Test::Builder is available at <https://github.com/perl6-community-modules/p6-test-builder>.
+The source code for `Test::Builder` is available at
+<https://github.com/perl6-community-modules/p6-test-builder>.
 
 To obtain a local copy of the source code, run:
 
-    git clone git@github.com:perl6-community-modules/p6-test-builder.git p6-test-builder
+    git clone git@github.com:perl6-community-modules/p6-test-builder.git
 
 
 ## Installation
