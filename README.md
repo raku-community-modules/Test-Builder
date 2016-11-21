@@ -33,8 +33,8 @@ If you experience a bug, error, or just want to make a suggestion, you can
 open a [GitHub issue](https://github.com/perl6-community-modules/p6-test-builder/issues)
 or discuss the issue with the nice people on the #perl6 channel on irc.freenode.net.
 
-If you know how to fix the problem you encountered, forking a clone on
-GitHub and submitting a Pull Request.
+If you know how to fix the problem you encountered, simply fork a clone on
+GitHub and submit a Pull Request.
 
 
 ## Author
