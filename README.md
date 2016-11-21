@@ -1,5 +1,7 @@
 # Test::Builder
 
+[![Build Status](https://travis-ci.org/perl6-community-modules/p6-test-builder.svg?branch=master)](https://travis-ci.org/perl6-community-modules/p6-test-builder)
+
 This is a flexible framework for building TAP test libraries.
 
 It provides the basic "building blocks" and generic functionality needed for
