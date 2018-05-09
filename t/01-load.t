@@ -3,7 +3,7 @@ use v6;
 use Test;
 use Test::Builder;
 
-plan 3;
+plan 4;
 
 # Verify that module is loaded properly
 ok 1, 'Load module';
