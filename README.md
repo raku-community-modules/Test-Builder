@@ -20,11 +20,8 @@ To obtain a local copy of the source code, run:
 
 ## Installation
 
-The simplest way to install `Test::Builder` is via either via `panda`
-
-    panda install Test::Builder
-
-or `zef`:
+The simplest way to install `Test::Builder` is
+using [`zef`](https://modules.perl6.org/repo/zef)
 
     zef install Test::Builder
 
