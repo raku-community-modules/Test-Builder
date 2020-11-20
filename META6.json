@@ -1,6 +1,6 @@
 {
   "name": "Test::Builder",
-  "source-url": "git://github.com/perl6-community-modules/p6-test-builder.git",
+  "source-url": "git://github.com/raku-community-modules/Test-Builder.git",
   "authority": "soh-cah-toa",
   "perl": "6.*",
   "source-type": "git",
