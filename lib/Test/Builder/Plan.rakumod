@@ -1,5 +1,35 @@
-# Copyright (C) 2011, Kevin Polulak <kpolulak@gmail.com>.
-# Copyright (C) 2015-2016 The Perl6 Community.
+#= Generic role for common methods
+role Test::Builder::Plan::Generic {
+    #= Returns generic header
+    method header(--> Str:D) { '' }
+
+    #= Returns generic footer
+    method footer(Int:D $ran --> Str:D) { "1..$ran" }
+}
+
+#= Manages the plan set for the test harness
+class Test::Builder::Plan does Test::Builder::Plan::Generic {
+    has Int:D $.expected is rw is required = 0;
+    #= Number of tests that "should" be run
+
+    #= Returns string to be displayed before tests are run
+    method header(--> Str:D) { "1..$.expected" }
+
+    #= Returns string to be used as footer in final report
+    method footer(Int:D $ran --> Str:D) {
+        # Determine whether to use past or present tense in message
+        my Str:D $s = $.expected == 1 ?? '' !! 's';
+
+        $ran == $.expected
+          ?? ''
+          !! "\# Looks like you planned $.expected test{
+                "s" if $.expected == 1
+            } but ran $ran."
+    }
+}
+
+#= Manages the pseudo-plan when one isn't set
+class Test::Builder::NoPlan does Test::Builder::Plan::Generic { }
 
 =begin pod
 
@@ -83,45 +113,4 @@ For further information, please see LICENSE or visit
 
 =end pod
 
-#= Generic role for common methods
-role Test::Builder::Plan::Generic {
-    #= Returns generic header
-    method header() returns Str {
-        return '';
-    }
-
-    #= Returns generic footer
-    method footer(Int $ran) returns Str {
-        return "1..$ran";
-    }
-}
-
-#= Manages the plan set for the test harness
-class Test::Builder::Plan does Test::Builder::Plan::Generic {
-    has Int $.expected is rw;    #= Number of tests that "should" be run
-
-    submethod BUILD(:$!expected = 0) {
-        die 'Invalid or missing plan!' unless self.expected.defined;
-    }
-
-    #= Returns string to be displayed before tests are run
-    method header() returns Str {
-        return "1..$.expected";
-    }
-
-    #= Returns string to be used as footer in final report
-    method footer(Int $ran) returns Str {
-        # Determine whether to use past or present tense in message
-        my Str $s = $.expected == 1 ?? '' !! 's';
-
-        return $ran == $.expected
-            ?? ''
-            !! "\# Looks like you planned $.expected test$s but ran $ran.";
-    }
-}
-
-#= Manages the pseudo-plan when one isn't set
-class Test::Builder::NoPlan does Test::Builder::Plan::Generic { }
-
-# vim: ft=perl6
-
+# vim: expandtab shiftwidth=4

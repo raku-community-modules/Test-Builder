@@ -1,5 +1,3 @@
-use v6;
-
 use Test;
 use Test::Builder;
 
@@ -14,4 +12,4 @@ ok $tb, 'Instance was created';
 my Test::Builder $tb_created .= create;
 isnt $tb, $tb_created, "Created object isn't existing global singleton"
 
-# vim: ft=perl6
+# vim: expandtab shiftwidth=4

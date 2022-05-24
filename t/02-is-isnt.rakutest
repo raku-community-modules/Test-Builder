@@ -1,4 +1,3 @@
-use lib <lib>;
 use Test;
 use Test::Builder;
 use Test::Builder::Output;
@@ -34,3 +33,5 @@ like $grab.data.decode, /
     «ok»       .+ "`isn't` test 1" .+
     «"not ok"» .+ "`isn't` test 2" .+
 /, "is/isn't give right results";
+
+# vim: expandtab shiftwidth=4
