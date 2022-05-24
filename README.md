@@ -1,58 +1,106 @@
-# Test::Builder
+[![Actions Status](https://github.com/raku-community-modules/Test-Builder/actions/workflows/test.yml/badge.svg)](https://github.com/raku-community-modules/Test-Builder/actions)
 
-[![Build Status](https://travis-ci.org/perl6-community-modules/p6-test-builder.svg?branch=master)](https://travis-ci.org/perl6-community-modules/p6-test-builder)
+NAME
+====
 
-This is a flexible framework for building TAP test libraries.
+Test::Builder - flexible framework for building TAP test libraries
 
-It provides the basic "building blocks" and generic functionality needed for
-building your own application-specific TAP test libraries.
+SYNOPSIS
+========
 
+```raku
+my $tb = Test::Builder.new;
 
-## Source Code
+$tb.plan(2);
 
-The source code for `Test::Builder` is available at
-<https://github.com/raku-community-modules/Test-Builder>.
+$tb.ok(1, 'This is a test');
+$tb.ok(1, 'This is another test');
 
-To obtain a local copy of the source code, run:
+$tb.done;
+```
 
-    git clone git@github.com:raku-community-modules/Test-Builder.git
+DESCRIPTION
+===========
 
+`Test::Builder` is meant to serve as a generic backend for test libraries. Put differently, it provides the basic "building blocks" and generic functionality needed for building your own application-specific TAP test libraries.
 
-## Installation
+`Test::Builder` conforms to the Test Anything Protocol (TAP) specification.
 
-The simplest way to install `Test::Builder` is
-using [`zef`](https://modules.perl6.org/repo/zef)
+USE
+===
 
-    zef install Test::Builder
+Object Initialization
+---------------------
 
+### **new()**
 
-## Feedback
+Returns the `Test::Builder` singleton object.
 
-If you experience a bug, error, or just want to make a suggestion, you can
-open a [GitHub issue](https://github.com/raku-community-modules/Test-Builder/issues)
-or discuss the issue with the nice people on the #perl6 channel on irc.freenode.net.
+The `new()` method only returns a new object the first time that it's called. If called again, it simply returns the same object. This allows multiple modules to share the global information about the TAP harness's state.
 
-If you know how to fix the problem you encountered, simply fork a clone on
-GitHub and submit a Pull Request.
+Alternatively, if a singleton object is too limiting, you can use the `create()` method instead.
 
+### **create()**
 
-## Author
+Returns a new `Test::Builder` instance.
 
-Originally written by Kevin Polulak:
-  - Email: kpolulak@gmail.com
-  - IRC:   soh_cah_toa
+The `create()` method should only be used under certain circumstances. For instance, when testing `Test::Builder`-based modules. In all other cases, it is recommended that you stick to using `new()` instead.
 
-Now maintained by The Raku Community:
-  - GitHub: https://github.com/raku-community-modules
+Implementing Tests
+------------------
 
+The following methods are responsible for performing the actual tests.
 
-## Copyright and License
+All methods take an optional string argument describing the nature of the test.
 
-Copyright (C) 2011, Kevin Polulak <kpolulak@gmail.com>.
+### **plan(Int $tests)**
 
-Copyright (C) 2015-2016 The Raku Community.
+Declares how many tests are going to be run.
+
+If called as `.plan(*)`, then a plan will not be set. However, it is your job to call `done()` when all tests have been run.
+
+### **ok(Mu $test, Str $description)**
+
+Evaluates `$test` in a boolean context. The test will pass if the expression evaluates to `Bool::True` and fail otherwise.
+
+### **nok(Mu $test, Str $description)**
+
+The antithesis of `ok()`. Evaluates `$test` in a boolean context. The test will pass if the expression evaluates to `Bool::False` and fail otherwise.
+
+Modifying Test Behavior
+-----------------------
+
+### **todo(Str $reason, Int $count)**
+
+Marks the next `$count` tests as failures but ignores the fact. Test execution will continue after displaying the message in `$reason`.
+
+It's important to note that even though the tests are marked as failures, they will still be evaluated. If a test marked with `todo()` in fact passes, a warning message will be displayed.
+
+# TODO The todo() method doesn't actually does this yet but I want it to
+
+SEE ALSO
+========
+
+[http://testanything.org](http://testanything.org)
+
+AUTHOR
+======
+
+Kevin Polulak
+
+ACKNOWLEDGEMENTS
+================
+
+`Test::Builder` was largely inspired by chromatic's work on the old `Test::Builder` module for Pugs.
+
+Additionally, `Test::Builder` is based on the Perl module of the same name also written by chromatic and Michael G. Schwern.
+
+COPYRIGHT
+=========
+
+Copyright 2011 Kevin Polulak
+
+Copyright 2012 - 2022 Raku Community
 
 This program is distributed under the terms of the Artistic License 2.0.
 
-For further information, please see the LICENSE or visit
-<http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt>.

@@ -1,20 +1,29 @@
 {
-  "auth" : "zef:raku-community-modules",
-  "name": "Test::Builder",
-  "source-url": "git://github.com/raku-community-modules/Test-Builder.git",
-  "perl": "6.*",
-  "source-type": "git",
+  "auth": "zef:raku-community-modules",
   "author": "Kevin Polulak",
-  "depends": [
-
+  "build-depends": [
   ],
+  "depends": [
+  ],
+  "description": "flexible framework for building TAP test libraries",
   "license": "Artistic-2.0",
+  "name": "Test::Builder",
+  "perl": "6.*",
   "provides": {
-    "Test::Builder::Test": "lib/Test/Builder/Test.rakumod",
-    "Test::Builder::Plan": "lib/Test/Builder/Plan.rakumod",
+    "Test::Builder": "lib/Test/Builder.rakumod",
     "Test::Builder::Output": "lib/Test/Builder/Output.rakumod",
-    "Test::Builder": "lib/Test/Builder.rakumod"
+    "Test::Builder::Plan": "lib/Test/Builder/Plan.rakumod",
+    "Test::Builder::Test": "lib/Test/Builder/Test.rakumod"
   },
-  "version": "0.0.4",
-  "description": "Flexible framework for building TAP test libraries"
+  "resources": [
+  ],
+  "source-type": "git",
+  "source-url": "git://github.com/raku-community-modules/Test-Builder.git",
+  "tags": [
+    "TEST",
+    "BUILDER"
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.4"
 }
