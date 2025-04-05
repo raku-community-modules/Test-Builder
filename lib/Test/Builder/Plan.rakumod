@@ -1,4 +1,4 @@
-#= Generic role for common methods
+#| Generic role for common methods
 role Test::Builder::Plan::Generic {
     #= Returns generic header
     method header(--> Str:D) { '' }
@@ -7,7 +7,7 @@ role Test::Builder::Plan::Generic {
     method footer(Int:D $ran --> Str:D) { "1..$ran" }
 }
 
-#= Manages the plan set for the test harness
+#| Manages the plan set for the test harness
 class Test::Builder::Plan does Test::Builder::Plan::Generic {
     has Int:D $.expected is rw is required = 0;
     #= Number of tests that "should" be run
@@ -28,7 +28,7 @@ class Test::Builder::Plan does Test::Builder::Plan::Generic {
     }
 }
 
-#= Manages the pseudo-plan when one isn't set
+#| Manages the pseudo-plan when one isn't set
 class Test::Builder::NoPlan does Test::Builder::Plan::Generic { }
 
 =begin pod

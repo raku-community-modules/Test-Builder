@@ -1,4 +1,4 @@
-#= Handles output operations for Test::Builder objects
+#| Handles output operations for Test::Builder objects
 class Test::Builder::Output {
     has $!stdout = $*OUT;    #= Filehandle used by write()
     has $!stderr = $*ERR;    #= Filehandle used by diag()

@@ -7,26 +7,26 @@ use Test::Builder::Output;
 
 class Test::Builder { ... };
 
-#= Global Test::Builder singleton object
+#| Global Test::Builder singleton object
 my Test::Builder $TEST_BUILDER;
 
 class Test::Builder {
-    #= Stack containing results of each test
+    #| Stack containing results of each test
     has                              @!results;
 
-    #= Sets up number of tests to run
+    #| Sets up number of tests to run
     has Test::Builder::Plan::Generic $!plan;
 
-    #= Handles all output operations
+    #| Handles all output operations
     has Test::Builder::Output        $!output handles 'diag';
 
-    #= Specifies whether or not .done() has been called
+    #| Specifies whether or not .done() has been called
     has Bool                         $.done_testing is rw;
 
-    #= Returns the Test::Builder singleton object
+    #| Returns the Test::Builder singleton object
     method new() { $TEST_BUILDER //= self.create }
 
-    #= Returns a new Test::Builder instance
+    #| Returns a new Test::Builder instance
     method create() { $?CLASS.bless }
 
     submethod BUILD(
@@ -34,7 +34,7 @@ class Test::Builder {
       Test::Builder::Output $!output = Test::Builder::Output.new
     ) { }
 
-    #= Declares that no more tests need to be run
+    #| Declares that no more tests need to be run
     method done(--> Nil) {
         $.done_testing = True;
 
@@ -43,14 +43,14 @@ class Test::Builder {
         $!output.write($footer) if $footer;
     }
 
-    #= Declares the number of tests to run
+    #| Declares the number of tests to run
     multi method plan(Int:D $tests --> Nil) {
         die 'Plan already set!' if $!plan;
 
         $!plan = Test::Builder::Plan.new(:expected($tests));
     }
 
-    #= Declares that the number of tests is unknown
+    #| Declares that the number of tests is unknown
     multi method plan(Whatever --> Nil) {
         die 'Plan already set!' if $!plan;
 
@@ -60,12 +60,12 @@ class Test::Builder {
     # TODO Implement skip_all and no_plan
     multi method plan(Str:D $explanation --> Nil) { ... }
 
-    #= Default candidate for arguments of the wrong type
+    #| Default candidate for arguments of the wrong type
     multi method plan($any --> Nil) {
         die 'Unknown plan!';
     }
 
-    #= Tests the first argument for boolean truth
+    #| Tests the first argument for boolean truth
     method ok(Mu $test, Str:D $description = '') {
         self!report_test(
           Test::Builder::Test.new(
@@ -78,7 +78,7 @@ class Test::Builder {
         $test
     }
 
-    #= Tests the first argument for boolean false
+    #| Tests the first argument for boolean false
     method nok(Mu $test, Str:D $description = '') {
         self!report_test(
           Test::Builder::Test.new(
@@ -91,7 +91,7 @@ class Test::Builder {
         $test
     }
 
-    #= Verifies that the first two arguments are equal
+    #| Verifies that the first two arguments are equal
     method is(Mu $got, Mu $expected, Str:D $description = '') {
         my Bool $test = $got eq $expected;
 
@@ -119,7 +119,7 @@ class Test::Builder {
         $test
     }
 
-    #= Verifies that the first two arguments are not equal
+    #| Verifies that the first two arguments are not equal
     method isnt(Mu $got, Mu $expected, Str:D $description = '') {
         my Bool $test = $got ne $expected;
 
@@ -147,7 +147,7 @@ class Test::Builder {
         $test
     }
 
-    #= Marks a given number of tests as failures
+    #| Marks a given number of tests as failures
     method todo(Mu $todo, Str:D $description = '', Str:D $reason = '') {
         self!report_test(
           Test::Builder::Test.new(
@@ -161,7 +161,7 @@ class Test::Builder {
         $todo
     }
 
-    #= Displays the results of the given test
+    #| Displays the results of the given test
     method !report_test(
       Test::Builder::Test::Generic:D $test,
       :%verbose
@@ -174,7 +174,7 @@ class Test::Builder {
         $!output.diag($test.verbose_report(%verbose)) if %verbose;
     }
 
-    #= Returns the current test number
+    #| Returns the current test number
     method !get_test_number() { @!results + 1 }
 }
 

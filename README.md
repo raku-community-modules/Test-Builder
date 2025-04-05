@@ -1,5 +1,158 @@
 [![Actions Status](https://github.com/raku-community-modules/Test-Builder/actions/workflows/test.yml/badge.svg)](https://github.com/raku-community-modules/Test-Builder/actions)
 
+class Test::Builder
+-------------------
+
+Global Test::Builder singleton object
+
+### has Positional @!results
+
+Stack containing results of each test
+
+### has Test::Builder::Plan::Generic $!plan
+
+Sets up number of tests to run
+
+class Attribute+{<anon|2>}.new(handles => "diag")
+-------------------------------------------------
+
+Handles all output operations
+
+### has Bool $.done_testing
+
+Specifies whether or not .done() has been called
+
+### method new
+
+```raku
+method new() returns Mu
+```
+
+Returns the Test::Builder singleton object
+
+### method create
+
+```raku
+method create() returns Mu
+```
+
+Returns a new Test::Builder instance
+
+### method done
+
+```raku
+method done() returns Nil
+```
+
+Declares that no more tests need to be run
+
+### multi method plan
+
+```raku
+multi method plan(
+    Int:D $tests
+) returns Nil
+```
+
+Declares the number of tests to run
+
+### multi method plan
+
+```raku
+multi method plan(
+    Whatever $
+) returns Nil
+```
+
+Declares that the number of tests is unknown
+
+### multi method plan
+
+```raku
+multi method plan(
+    $any
+) returns Nil
+```
+
+Default candidate for arguments of the wrong type
+
+### method ok
+
+```raku
+method ok(
+    Mu $test,
+    Str:D $description = ""
+) returns Mu
+```
+
+Tests the first argument for boolean truth
+
+### method nok
+
+```raku
+method nok(
+    Mu $test,
+    Str:D $description = ""
+) returns Mu
+```
+
+Tests the first argument for boolean false
+
+### method is
+
+```raku
+method is(
+    Mu $got,
+    Mu $expected,
+    Str:D $description = ""
+) returns Mu
+```
+
+Verifies that the first two arguments are equal
+
+### method isnt
+
+```raku
+method isnt(
+    Mu $got,
+    Mu $expected,
+    Str:D $description = ""
+) returns Mu
+```
+
+Verifies that the first two arguments are not equal
+
+### method todo
+
+```raku
+method todo(
+    Mu $todo,
+    Str:D $description = "",
+    Str:D $reason = ""
+) returns Mu
+```
+
+Marks a given number of tests as failures
+
+### method report_test
+
+```raku
+method report_test(
+    Test::Builder::Test::Generic:D $test,
+    :%verbose
+) returns Nil
+```
+
+Displays the results of the given test
+
+### method get_test_number
+
+```raku
+method get_test_number() returns Mu
+```
+
+Returns the current test number
+
 NAME
 ====
 
